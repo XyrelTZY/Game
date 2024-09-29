@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes/No Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="flex flex-col justify-center items-center h-screen bg-gray-100">
+
+    <!-- Title -->
+    <h1 class="text-3xl font-bold mb-10">Are you Gay??</h1>
+
+    <!-- Buttons -->
+    <div id="button-container" class="space-x-4">
+        <button id="yesButton" class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700">
+            Yes
+        </button>
+        <button id="noButton" class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700">
+            No
+        </button>
+    </div>
+
+    <!-- Hidden Content -->
+    <div id="hiddenContent" class="hidden mt-10 p-5 bg-blue-500 text-white rounded-lg">
+        <img src="" alt="img">
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const hiddenContent = document.getElementById('hiddenContent');
+
+        yesButton.addEventListener('click', () => {
+            hiddenContent.classList.remove('hidden');
+        });
+
+        noButton.addEventListener('mouseover', () => {
+            const randomX = Math.floor(Math.random() * (window.innerWidth - noButton.clientWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - noButton.clientHeight));
+
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        });
+    </script>
+</body>
+</html>
